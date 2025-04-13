@@ -2,54 +2,61 @@
   "kpis": [
     {
       "label": "Toplam Çağrı",
-      "value": 148
+      "value": 186
     },
     {
       "label": "Memnuniyet Ort.",
-      "value": "%84"
+      "value": "%79"
     },
     {
       "label": "Negatif Çağrı",
-      "value": 15
+      "value": 22
     }
   ],
   "reps": [
     {
-      "name": "Ahmet",
-      "score": 62,
-      "negative": 5,
+      "name": "Ahmet Karaca",
+      "score": 58,
+      "negative": 6,
       "calls": [
-        "Ben kaç kere aradım!",
-        "Yardım etmiyorsunuz!"
+        "Bu kaçıncı kez arıyorum, neden hala çözülmedi?",
+        "Daha önce de söyledim, hala sonuç alamadım.",
+        "Bu sistem hiç yardımcı olmuyor.",
+        "Sürekli bekletiliyorum, çok sinirliyim.",
+        "Hiçbir açıklama yapılmadan görüşme sonlandı.",
+        "Bir daha bu firmayla çalışmam."
       ]
     },
     {
-      "name": "Ayşe",
-      "score": 88,
-      "negative": 1,
+      "name": "Ayşe Demir",
+      "score": 92,
+      "negative": 0,
       "calls": [
-        "Teşekkür ederim, çok yardımcı oldunuz."
+        "Teşekkür ederim, çok yardımcı oldunuz.",
+        "Mükemmel hizmet, sizi tebrik ediyorum."
       ]
     },
     {
-      "name": "Mehmet",
-      "score": 72,
+      "name": "Mehmet Yılmaz",
+      "score": 71,
       "negative": 3,
       "calls": [
-        "Bu sorun neden çözülmedi?"
+        "Şikayet kaydım alınmıştı ama geri dönüş yapılmadı.",
+        "Bu ürün için değişim talep ediyorum.",
+        "Sizinle iletişim kurmak gerçekten zor."
       ]
     }
   ],
   "alerts": [
     {
-      "name": "Ahmet",
-      "date": "12.04",
-      "quote": "Bu kaçıncı arayışım!"
+      "name": "Ahmet Karaca",
+      "date": "13.04",
+      "quote": "Sürekli bekletiliyorum, çok sinirliyim."
     },
     {
-      "name": "Mehmet",
-      "date": "11.04",
-      "quote": "Yardımcı olmuyorsunuz!"
+      "name": "Mehmet Yılmaz",
+      "date": "12.04",
+      "quote": "Geri dönüş yapılmadı."
     }
   ]
 }
