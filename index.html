@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Tabanlı Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+    header { background: #1f3c88; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; }
+    .container { padding: 2rem; }
+    .kpis { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .kpi-box { background: white; flex: 1 1 200px; padding: 1rem; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
+    .section { background: white; padding: 1rem; margin-top: 2rem; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
+    table { width: 100%; margin-top: 1rem; border-collapse: collapse; }
+    th, td { padding: 0.75rem; border-bottom: 1px solid #eee; cursor: pointer; }
+    .alert { color: red; font-weight: bold; }
+    .hidden { display: none; }
+    .call-details { background: #fff; padding: 1rem; margin-top: 1rem; border-left: 3px solid #1f3c88; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>Ses Analizi Dashboard</strong></div>
+  <div>Kullanıcı: Takım Lideri</div>
+</header>
+
+<div class="container">
+  <div class="kpis" id="kpiContainer"></div>
+
+  <div class="section">
+    <h3>Temsilci Performansı</h3>
+    <table>
+      <thead><tr><th>Temsilci</th><th>Skor</th><th>Negatif</th></tr></thead>
+      <tbody id="repTable"></tbody>
+    </table>
+    <div id="callDetail" class="call-details hidden"></div>
+  </div>
+
+  <div class="section">
+    <h3>Kritik Uyarılar</h3>
+    <ul id="alertList"></ul>
+  </div>
+</div>
+
+<script>
+  let jsonData;
+
+  fetch('dashboard_data.json')
+    .then(res => res.json())
+    .then(data => {
+      jsonData = data;
+
+      // KPI'lar
+      const kpiContainer = document.getElementById('kpiContainer');
+      data.kpis.forEach(kpi => {
+        const div = document.createElement('div');
+        div.className = 'kpi-box';
+        div.innerHTML = `<h2>${kpi.value}</h2><p>${kpi.label}</p>`;
+        kpiContainer.appendChild(div);
+      });
+
+      // Temsilci tablosu
+      const repTable = document.getElementById('repTable');
+      data.reps.forEach((rep, i) => {
+        const tr = document.createElement('tr');
+        tr.onclick = () => showDetail(rep);
+        tr.innerHTML = `<td>${rep.name}</td><td>${rep.score}</td><td class="${rep.negative > 2 ? 'alert' : ''}">${rep.negative}</td>`;
+        repTable.appendChild(tr);
+      });
+
+      // Uyarılar
+      const alertList = document.getElementById('alertList');
+      data.alerts.forEach(alert => {
+        const li = document.createElement('li');
+        li.innerHTML = `${alert.name} - ${alert.date}: “${alert.quote}” <span class="alert">Negatif</span>`;
+        alertList.appendChild(li);
+      });
+    });
+
+  function showDetail(rep) {
+    const container = document.getElementById('callDetail');
+    container.innerHTML = `<strong>${rep.name} Çağrı Detayları:</strong><br><ul>` +
+      rep.calls.map(c => `<li>"${c}"</li>`).join('') + '</ul>';
+    container.classList.remove('hidden');
+    container.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
