@@ -1,0 +1,55 @@
+{
+  "kpis": [
+    {
+      "label": "Toplam Çağrı",
+      "value": 148
+    },
+    {
+      "label": "Memnuniyet Ort.",
+      "value": "%84"
+    },
+    {
+      "label": "Negatif Çağrı",
+      "value": 15
+    }
+  ],
+  "reps": [
+    {
+      "name": "Ahmet",
+      "score": 62,
+      "negative": 5,
+      "calls": [
+        "Ben kaç kere aradım!",
+        "Yardım etmiyorsunuz!"
+      ]
+    },
+    {
+      "name": "Ayşe",
+      "score": 88,
+      "negative": 1,
+      "calls": [
+        "Teşekkür ederim, çok yardımcı oldunuz."
+      ]
+    },
+    {
+      "name": "Mehmet",
+      "score": 72,
+      "negative": 3,
+      "calls": [
+        "Bu sorun neden çözülmedi?"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "name": "Ahmet",
+      "date": "12.04",
+      "quote": "Bu kaçıncı arayışım!"
+    },
+    {
+      "name": "Mehmet",
+      "date": "11.04",
+      "quote": "Yardımcı olmuyorsunuz!"
+    }
+  ]
+}
